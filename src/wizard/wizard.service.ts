@@ -11,4 +11,9 @@ export class WizardService {
   getError(): Error {
     throw new Error('This is a simulated error for testing the error handler.');
   }
+
+  getPipeExample(id: number): string {
+    console.log(typeof id);
+    return `${typeof id}: ${id}`;
+  }
 }

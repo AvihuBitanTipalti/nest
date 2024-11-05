@@ -1,4 +1,10 @@
-import { Controller, Get, UseGuards } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Param,
+  ParseIntPipe,
+  UseGuards,
+} from '@nestjs/common';
 import { WizardService } from './wizard.service';
 import { AuthGuard } from './auth.guard';
 
@@ -20,5 +26,10 @@ export class WizardController {
   @Get('error')
   getError() {
     return this.wizardService.getError();
+  }
+
+  @Get('pipe/:id')
+  getPipeExample(@Param('id', ParseIntPipe) id: number) {
+    return this.wizardService.getPipeExample(id);
   }
 }
